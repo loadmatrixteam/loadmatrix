@@ -24,8 +24,119 @@
             padding: 0 20px;
         }
 
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(15, 52, 96, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: 1px;
+            background: linear-gradient(90deg, #00d4ff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #00d4ff;
+            margin: 3px 0;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .nav-menu a:hover {
+            color: #00d4ff;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: flex;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                max-width: 300px;
+                height: 100vh;
+                background: rgba(15, 52, 96, 0.98);
+                flex-direction: column;
+                padding: 80px 30px 30px;
+                gap: 25px;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .nav-menu a {
+                font-size: 1.2rem;
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            }
+        }
+
         /* Hero Section */
         .hero {
+            margin-top: 60px;
             background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
             color: white;
             padding: 80px 20px 100px;
@@ -288,6 +399,24 @@
     </style>
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">LOADMATRIX</div>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-menu" id="navMenu">
+                <li><a onclick="scrollToSection('dashboards')">Home</a></li>
+                <li><a onclick="scrollToSection('how-it-works')">About</a></li>
+                <li><a onclick="scrollToSection('why-choose')">Features</a></li>
+                <li><a onclick="scrollToSection('footer')">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
@@ -299,7 +428,7 @@
     </section>
 
     <!-- Dashboards Section -->
-    <section class="dashboards">
+    <section class="dashboards" id="dashboards">
         <div class="container">
             <div class="dashboard-grid">
                 <div class="dashboard-card">
@@ -317,7 +446,7 @@
     </section>
 
     <!-- How It Works Section -->
-    <section class="how-it-works">
+    <section class="how-it-works" id="how-it-works">
         <div class="container">
             <h2 class="section-title">How LoadMatrix Works</h2>
             <div class="steps-grid">
@@ -356,7 +485,7 @@
     </section>
 
     <!-- Why Choose Section -->
-    <section class="why-choose">
+    <section class="why-choose" id="why-choose">
         <div class="container">
             <h2 class="section-title">Why Choose LoadMatrix</h2>
             <div class="badges-grid">
@@ -370,7 +499,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" id="footer">
         <div class="container">
             <div class="footer-logo">LOADMATRIX</div>
             <a href="mailto:loadmatrixteam@gmail.com" class="footer-email">loadmatrixteam@gmail.com</a>
@@ -382,5 +511,40 @@
             </p>
         </div>
     </footer>
+
+    <script>
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('navMenu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth scroll function
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            const navbarHeight = 60;
+            const targetPosition = section.offsetTop - navbarHeight;
+
+            window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+            });
+
+            // Close menu after clicking (mobile)
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
