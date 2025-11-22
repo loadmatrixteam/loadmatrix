@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LoadMatrix - India's First C-to-C Shipping Platform</title>
+    <title>LoadMatrix - India's First Modern C-to-C Logistics Platform</title>
     <style>
         * {
             margin: 0;
@@ -13,87 +13,23 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            color: #1e293b;
+            background: #ffffff;
+            color: #1a1a2e;
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
-        header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
-            padding: 1.2rem 5%;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 20px rgba(30, 58, 138, 0.15);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 1.8rem;
-            font-weight: 800;
-            color: white;
-            text-decoration: none;
-        }
-
-        .logo-icon {
-            width: 45px;
-            height: 45px;
-            background: white;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 24px;
-        }
-
-        .nav-menu {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
-
-        .nav-menu a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1.05rem;
-            transition: opacity 0.3s;
-        }
-
-        .nav-menu a:hover {
-            opacity: 0.8;
-        }
-
-        .cta-btn {
-            background: white;
-            color: #1e3a8a;
-            padding: 0.8rem 2rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.3);
-        }
-
-        .cta-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 25px rgba(255, 255, 255, 0.4);
-        }
-
+        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
-            padding: 6rem 5% 8rem;
+            background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);
             color: white;
+            padding: 80px 20px 100px;
+            text-align: center;
             position: relative;
             overflow: hidden;
         }
@@ -105,874 +41,346 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><rect width="2" height="2" fill="white" opacity="0.1"/></svg>');
-            opacity: 0.3;
+            background: radial-gradient(circle at 20% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 50%);
+            pointer-events: none;
         }
 
-        .hero-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            position: relative;
-            z-index: 1;
-        }
-
-        .hero-text {
-            animation: fadeInUp 0.8s ease-out;
-        }
-
-        .badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            padding: 0.6rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            background: linear-gradient(90deg, #00d4ff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            font-weight: 900;
+            font-size: 2.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
             line-height: 1.2;
-            margin-bottom: 1.5rem;
         }
 
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.95;
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
-        .hero-buttons {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .btn-primary {
-            background: white;
-            color: #1e3a8a;
-            padding: 1rem 2.5rem;
-            border-radius: 12px;
+        .cta-button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: linear-gradient(90deg, #00d4ff, #00ffff);
+            color: #0f3460;
             text-decoration: none;
-            font-weight: 700;
+            border-radius: 50px;
+            font-weight: 600;
             font-size: 1.1rem;
-            transition: all 0.3s;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
         }
 
-        .btn-primary:hover {
+        .cta-button:hover {
             transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5);
         }
 
-        .btn-secondary {
-            background: transparent;
-            color: white;
-            padding: 1rem 2.5rem;
-            border-radius: 12px;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.1rem;
-            border: 2px solid white;
-            transition: all 0.3s;
+        /* Dashboards Section */
+        .dashboards {
+            padding: 60px 20px;
+            background: #f8f9fa;
         }
 
-        .btn-secondary:hover {
-            background: white;
-            color: #1e3a8a;
-        }
-
-        .hero-illustration {
-            position: relative;
-            height: 450px;
-        }
-
-        .illustration-box {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        }
-
-        .illustration-box:nth-child(1) {
-            top: 0;
-            left: 0;
-            width: 280px;
-            height: 180px;
-        }
-
-        .illustration-box:nth-child(2) {
-            top: 50px;
-            right: 0;
-            width: 250px;
-            height: 200px;
-        }
-
-        .illustration-box:nth-child(3) {
-            bottom: 0;
-            left: 50px;
-            width: 300px;
-            height: 160px;
-        }
-
-        .section-container {
-            max-width: 1400px;
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 800px;
             margin: 0 auto;
+        }
+
+        .dashboard-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .dashboard-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .dashboard-card h3 {
+            color: #0f3460;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        .dashboard-card p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            padding: 80px 20px;
+            background: white;
         }
 
         .section-title {
             text-align: center;
-            font-size: 2.8rem;
-            font-weight: 900;
-            color: #1e3a8a;
-            margin-bottom: 1rem;
-        }
-
-        .section-subtitle {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #64748b;
-            margin-bottom: 4rem;
-        }
-
-        .features {
-            padding: 6rem 5%;
-            background: white;
-        }
-
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-            margin-top: 4rem;
-        }
-
-        .feature-card {
-            background: white;
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 40px rgba(30, 58, 138, 0.08);
-            transition: all 0.3s;
-            border: 1px solid #e2e8f0;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(30, 58, 138, 0.15);
-        }
-
-        .feature-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%);
-            border-radius: 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-card h3 {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: #1e3a8a;
-            margin-bottom: 1rem;
-        }
-
-        .feature-card p {
-            color: #64748b;
-            font-size: 1.05rem;
-        }
-
-        .c2c-highlight {
-            padding: 6rem 5%;
-            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
-            color: white;
-        }
-
-        .c2c-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .c2c-content h2 {
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 3rem;
-        }
-
-        .c2c-flow {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .flow-step {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            padding: 2.5rem 2rem;
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            flex: 1;
-            max-width: 280px;
-        }
-
-        .flow-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .flow-step h3 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-        }
-
-        .flow-arrow {
             font-size: 2.5rem;
-            opacity: 0.6;
+            color: #0f3460;
+            margin-bottom: 60px;
+            font-weight: 700;
         }
 
-        footer {
-            background: #0f172a;
-            color: white;
-            padding: 3rem 5%;
-            text-align: center;
-        }
-
-        .footer-content {
-            max-width: 1400px;
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
-        .footer-email {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: #3b82f6;
+        .step {
+            text-align: center;
+            position: relative;
         }
 
-        .footer-copyright {
-            opacity: 0.7;
-            margin-top: 1rem;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin-top: 1.5rem;
-        }
-
-        .social-icon {
-            width: 45px;
-            height: 45px;
-            background: rgba(255, 255, 255, 0.1);
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #0f3460, #16213e);
+            color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+            box-shadow: 0 5px 15px rgba(15, 52, 96, 0.3);
+        }
+
+        .step h3 {
+            color: #0f3460;
+            margin-bottom: 10px;
             font-size: 1.3rem;
+        }
+
+        .step p {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* Why Choose Section */
+        .why-choose {
+            padding: 60px 20px;
+            background: #f8f9fa;
+        }
+
+        .badges-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            background: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            color: #0f3460;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
             transition: all 0.3s;
-            cursor: pointer;
         }
 
-        .social-icon:hover {
-            background: #2563eb;
-            transform: translateY(-3px);
+        .badge:hover {
+            background: linear-gradient(90deg, #00d4ff, #00ffff);
+            color: white;
+            transform: scale(1.05);
         }
 
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+        /* Footer */
+        .footer {
+            background: #0f3460;
+            color: white;
+            padding: 40px 20px 20px;
+            text-align: center;
         }
 
-        /* Tablet and below */
-        @media (max-width: 968px) {
-            header {
-                padding: 1rem 4%;
-            }
-
-            nav {
-                flex-wrap: wrap;
-                gap: 1rem;
-            }
-
-            .logo {
-                font-size: 1.5rem;
-            }
-
-            .logo-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 20px;
-            }
-
-            .nav-menu {
-                display: none;
-            }
-
-            .cta-btn {
-                padding: 0.7rem 1.5rem;
-                font-size: 0.95rem;
-            }
-
-            .hero {
-                padding: 4rem 5% 5rem;
-            }
-
-            .hero-content {
-                grid-template-columns: 1fr;
-                gap: 3rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1.15rem;
-            }
-
-            .badge {
-                font-size: 0.9rem;
-                padding: 0.5rem 1.2rem;
-            }
-
-            .hero-buttons {
-                flex-wrap: wrap;
-            }
-
-            .btn-primary,
-            .btn-secondary {
-                padding: 0.9rem 2rem;
-                font-size: 1rem;
-            }
-
-            .hero-illustration {
-                height: 350px;
-            }
-
-            .illustration-box {
-                padding: 1.5rem;
-            }
-
-            .illustration-box:nth-child(1) {
-                width: 220px;
-                height: 150px;
-            }
-
-            .illustration-box:nth-child(2) {
-                width: 200px;
-                height: 160px;
-            }
-
-            .illustration-box:nth-child(3) {
-                width: 240px;
-                height: 140px;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
-            }
-
-            .section-subtitle {
-                font-size: 1.1rem;
-            }
-
-            .features {
-                padding: 4rem 5%;
-            }
-
-            .features-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .feature-card {
-                padding: 2.5rem 2rem;
-            }
-
-            .c2c-highlight {
-                padding: 4rem 5%;
-            }
-
-            .c2c-content h2 {
-                font-size: 2.2rem;
-            }
-
-            .c2c-flow {
-                flex-direction: column;
-                gap: 1.5rem;
-            }
-
-            .flow-step {
-                max-width: 100%;
-            }
-
-            .flow-arrow {
-                transform: rotate(90deg);
-            }
-
-            footer {
-                padding: 2.5rem 5%;
-            }
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, #00d4ff, #00ffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
-        /* Mobile devices */
+        .footer-email {
+            color: #00d4ff;
+            text-decoration: none;
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            display: inline-block;
+        }
+
+        .footer-email:hover {
+            text-decoration: underline;
+        }
+
+        .terms {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 800px;
+            margin: 30px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            line-height: 1.5;
+        }
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
-            header {
-                padding: 1rem 3%;
-            }
-
-            .logo {
-                font-size: 1.3rem;
-            }
-
-            .logo-icon {
-                width: 35px;
-                height: 35px;
-                font-size: 18px;
-            }
-
-            .cta-btn {
-                padding: 0.6rem 1.2rem;
-                font-size: 0.9rem;
-            }
-
-            .hero {
-                padding: 3rem 4% 4rem;
-            }
-
             .hero h1 {
                 font-size: 2rem;
-                line-height: 1.3;
             }
 
             .hero p {
-                font-size: 1.05rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .hero-text > div[style] {
-                padding: 1rem 1.2rem !important;
-                font-size: 0.95rem !important;
-                margin-bottom: 1.5rem !important;
-            }
-
-            .badge {
-                font-size: 0.85rem;
-                padding: 0.5rem 1rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .btn-primary,
-            .btn-secondary {
-                width: 100%;
-                text-align: center;
-                padding: 0.85rem 1.5rem;
-            }
-
-            .hero-illustration {
-                display: none;
-            }
-
-            .section-title {
-                font-size: 1.8rem;
-                padding: 0 1rem;
-            }
-
-            .section-subtitle {
                 font-size: 1rem;
-                padding: 0 1rem;
-                margin-bottom: 2.5rem;
-            }
-
-            .features {
-                padding: 3rem 4%;
-            }
-
-            .features-grid {
-                gap: 1.5rem;
-            }
-
-            .feature-card {
-                padding: 2rem 1.5rem;
-            }
-
-            .feature-card h3 {
-                font-size: 1.4rem;
-            }
-
-            .feature-card p {
-                font-size: 1rem;
-            }
-
-            .feature-icon {
-                width: 60px;
-                height: 60px;
-                font-size: 1.8rem;
-            }
-
-            .c2c-highlight {
-                padding: 3rem 4%;
-            }
-
-            .c2c-content h2 {
-                font-size: 1.8rem;
-                margin-bottom: 1.5rem;
-            }
-
-            .c2c-content p {
-                font-size: 1rem !important;
-                padding: 0 1rem;
-            }
-
-            .flow-step {
-                padding: 2rem 1.5rem;
-            }
-
-            .flow-step h3 {
-                font-size: 1.2rem;
-            }
-
-            .flow-step p {
-                font-size: 0.95rem;
-            }
-
-            .flow-icon {
-                font-size: 3rem;
-            }
-
-            footer {
-                padding: 2rem 4%;
-            }
-
-            .footer-email {
-                font-size: 1rem;
-                word-break: break-all;
-            }
-
-            .social-icons {
-                gap: 1rem;
-            }
-
-            .social-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 1.1rem;
-            }
-        }
-
-        /* Small mobile devices */
-        @media (max-width: 480px) {
-            header {
-                padding: 0.8rem 3%;
             }
 
             .logo {
-                font-size: 1.2rem;
-                gap: 8px;
-            }
-
-            .logo-icon {
-                width: 32px;
-                height: 32px;
-                font-size: 16px;
-                border-radius: 8px;
-            }
-
-            .cta-btn {
-                padding: 0.5rem 1rem;
-                font-size: 0.85rem;
-                border-radius: 10px;
-            }
-
-            .hero {
-                padding: 2.5rem 3% 3rem;
-            }
-
-            .hero h1 {
-                font-size: 1.6rem;
-            }
-
-            .hero p {
-                font-size: 0.95rem;
-                margin-bottom: 1.2rem;
-            }
-
-            .hero-text > div[style] {
-                padding: 0.9rem 1rem !important;
-                font-size: 0.88rem !important;
-                line-height: 1.6 !important;
-            }
-
-            .badge {
-                font-size: 0.75rem;
-                padding: 0.4rem 0.9rem;
-                margin-bottom: 1rem;
-            }
-
-            .btn-primary,
-            .btn-secondary {
-                padding: 0.75rem 1.2rem;
-                font-size: 0.95rem;
-                border-radius: 10px;
-            }
-
-            .section-title {
-                font-size: 1.5rem;
-            }
-
-            .section-subtitle {
-                font-size: 0.9rem;
-                margin-bottom: 2rem;
-            }
-
-            .features {
-                padding: 2.5rem 3%;
-            }
-
-            .features-grid {
-                gap: 1.2rem;
-            }
-
-            .feature-card {
-                padding: 1.8rem 1.2rem;
-                border-radius: 16px;
-            }
-
-            .feature-card h3 {
-                font-size: 1.2rem;
-            }
-
-            .feature-card p {
-                font-size: 0.92rem;
-            }
-
-            .feature-icon {
-                width: 55px;
-                height: 55px;
-                font-size: 1.6rem;
-                border-radius: 12px;
-                margin-bottom: 1rem;
-            }
-
-            .c2c-highlight {
-                padding: 2.5rem 3%;
-            }
-
-            .c2c-content h2 {
-                font-size: 1.5rem;
-                margin-bottom: 1rem;
-            }
-
-            .c2c-content p {
-                font-size: 0.9rem !important;
-            }
-
-            .c2c-flow {
-                gap: 1rem;
-            }
-
-            .flow-step {
-                padding: 1.5rem 1.2rem;
-                border-radius: 16px;
-            }
-
-            .flow-step h3 {
-                font-size: 1.1rem;
-            }
-
-            .flow-step p {
-                font-size: 0.88rem;
-            }
-
-            .flow-icon {
-                font-size: 2.5rem;
-                margin-bottom: 0.8rem;
-            }
-
-            .flow-arrow {
                 font-size: 2rem;
             }
 
-            footer {
-                padding: 1.8rem 3%;
+            .section-title {
+                font-size: 2rem;
             }
 
-            .logo[style] {
-                margin-bottom: 1rem !important;
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
 
-            .footer-email {
-                font-size: 0.9rem;
-            }
-
-            .footer-email a {
-                font-size: 0.9rem !important;
-            }
-
-            .social-icons {
-                gap: 0.8rem;
-                margin-top: 1.2rem;
-            }
-
-            .social-icon {
-                width: 38px;
-                height: 38px;
+            .cta-button {
+                padding: 14px 30px;
                 font-size: 1rem;
-            }
-
-            .footer-copyright {
-                font-size: 0.85rem;
-                margin-top: 0.8rem;
             }
         }
     </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="#" class="logo">
-                <div class="logo-icon">🚚</div>
-                <span>LoadMatrix</span>
-            </a>
-            <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-            <a href="#" class="cta-btn">Start Shipping</a>
-        </nav>
-    </header>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="logo">LOADMATRIX</div>
+            <h1>India's First Modern C-to-C Logistics Platform</h1>
+            <p>Fast, reliable, and real-time door-to-door parcel movement.</p>
+            <a href="mailto:loadmatrixteam@gmail.com" class="cta-button">Get Started</a>
+        </div>
+    </section>
 
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <div class="hero-text">
-                <div class="badge">⚡ 24-Hour Fast Delivery Across India</div>
-                <h1>Direct Customer-to-Customer Delivery</h1>
-                <p>Skip the warehouses, skip the delays. Get ultra-fast delivery straight from sender to receiver.</p>
-                <div style="background: rgba(255, 255, 255, 0.15); backdrop-filter: blur(10px); padding: 1.2rem 1.5rem; border-radius: 12px; margin-bottom: 2rem; border: 1px solid rgba(255, 255, 255, 0.3); font-size: 1.05rem; line-height: 1.7;">
-                    Unlike traditional logistics platforms that delay deliveries due to warehouse storage and sorting, LoadMatrix provides direct doorstep-to-doorstep delivery within 24 hours.
+    <!-- Dashboards Section -->
+    <section class="dashboards">
+        <div class="container">
+            <div class="dashboard-grid">
+                <div class="dashboard-card">
+                    <div class="dashboard-icon">📦</div>
+                    <h3>Customer Dashboard</h3>
+                    <p>Book shipments, track in real-time, manage payments.</p>
                 </div>
-
-            </div>
-            <div class="hero-illustration">
-                <div class="illustration-box">
-                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">📦</div>
-                    <div style="font-weight: 700;">Real-time Tracking</div>
-                </div>
-                <div class="illustration-box">
-                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">🗺️</div>
-                    <div style="font-weight: 700;">Smart Routing</div>
-                </div>
-                <div class="illustration-box">
-                    <div style="font-size: 3rem; margin-bottom: 0.5rem;">✅</div>
-                    <div style="font-weight: 700;">Verified Drivers</div>
+                <div class="dashboard-card">
+                    <div class="dashboard-icon">🚚</div>
+                    <h3>Driver Dashboard</h3>
+                    <p>Accept trips, update status, track earnings.</p>
                 </div>
             </div>
         </div>
     </section>
 
-
-
-    <section class="c2c-highlight" id="services">
-        <div class="c2c-content">
-            <h2>How LoadMatrix Works</h2>
-            <p style="font-size: 1.2rem; opacity: 0.95; margin-bottom: 3rem;">Experience seamless doorstep-to-doorstep delivery with complete transparency and real-time updates.</p>
-            
-            <div class="c2c-flow">
-                <div class="flow-step">
-                    <div class="flow-icon">📦</div>
+    <!-- How It Works Section -->
+    <section class="how-it-works">
+        <div class="container">
+            <h2 class="section-title">How LoadMatrix Works</h2>
+            <div class="steps-grid">
+                <div class="step">
+                    <div class="step-number">📦</div>
                     <h3>Pickup</h3>
-                    <p>Driver collects the package from the sender's doorstep</p>
+                    <p>Driver collects the package from the sender's doorstep.</p>
                 </div>
-                <div class="flow-arrow">→</div>
-                <div class="flow-step">
-                    <div class="flow-icon">🔍</div>
+                <div class="step">
+                    <div class="step-number">✅</div>
                     <h3>Verification</h3>
-                    <p>Package details are checked for safety and accuracy</p>
+                    <p>Package details checked for safety & accuracy.</p>
                 </div>
-                <div class="flow-arrow">→</div>
-                <div class="flow-step">
-                    <div class="flow-icon">🚚</div>
+                <div class="step">
+                    <div class="step-number">🚚</div>
                     <h3>Transport</h3>
-                    <p>Package moves through the network with real-time tracking</p>
+                    <p>Real-time movement through the network.</p>
                 </div>
-            </div>
-            
-            <div class="c2c-flow" style="margin-top: 2rem;">
-                <div class="flow-step">
-                    <div class="flow-icon">📱</div>
+                <div class="step">
+                    <div class="step-number">📍</div>
                     <h3>Live Updates</h3>
-                    <p>Sender and receiver get instant status notifications</p>
+                    <p>Instant tracking & notifications.</p>
                 </div>
-                <div class="flow-arrow">→</div>
-                <div class="flow-step">
-                    <div class="flow-icon">🏠</div>
+                <div class="step">
+                    <div class="step-number">🏠</div>
                     <h3>Drop-off</h3>
-                    <p>Package is delivered to the final destination</p>
+                    <p>Package delivered to destination.</p>
                 </div>
-                <div class="flow-arrow">→</div>
-                <div class="flow-step">
-                    <div class="flow-icon">✅</div>
+                <div class="step">
+                    <div class="step-number">✓</div>
                     <h3>Confirmation</h3>
-                    <p>Receiver completes a digital delivery confirmation</p>
+                    <p>Digital proof of delivery.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer id="contact">
-        <div class="footer-content">
-            <div class="logo" style="justify-content: center; margin-bottom: 2rem; font-size: 2rem;">
-                <div class="logo-icon" style="background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%); box-shadow: 0 4px 15px rgba(37, 99, 235, 0.3);">🚚</div>
-                <span style="background: linear-gradient(135deg, #2563eb 0%, #3b82f6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">LoadMatrix</span>
+    <!-- Why Choose Section -->
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="section-title">Why Choose LoadMatrix</h2>
+            <div class="badges-grid">
+                <div class="badge">⚡ Fast Service</div>
+                <div class="badge">💰 Transparent Pricing</div>
+                <div class="badge">📍 Real-time Tracking</div>
+                <div class="badge">✓ Verified Drivers</div>
+                <div class="badge">🎯 Smooth User Experience</div>
             </div>
-            
-            <div class="footer-email" style="background: rgba(59, 130, 246, 0.1); padding: 1rem 2rem; border-radius: 50px; margin-bottom: 2rem; border: 1px solid rgba(59, 130, 246, 0.2); display: inline-block;">
-                <span style="font-size: 1.3rem; margin-right: 0.5rem;">📧</span>
-                <a href="mailto:loadmatrixteam@gmail.com" style="color: #2563eb; text-decoration: none; font-weight: 600; font-size: 1.1rem;">loadmatrixteam@gmail.com</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-logo">LOADMATRIX</div>
+            <a href="mailto:loadmatrixteam@gmail.com" class="footer-email">loadmatrixteam@gmail.com</a>
+            <div class="terms">
+                All services subject to availability and verification. Delivery times may vary. LoadMatrix is not responsible for inaccurate user-provided information.
             </div>
-            
-            <div class="social-icons" style="margin-bottom: 2rem;">
-                <div class="social-icon" style="background: linear-gradient(135deg, #1877f2 0%, #42a5f5 100%); color: white; transform: scale(1.1);" title="Facebook">📘</div>
-                <div class="social-icon" style="background: linear-gradient(135deg, #1da1f2 0%, #0d8bd9 100%); color: white; transform: scale(1.1);" title="Twitter">🐦</div>
-                <div class="social-icon" style="background: linear-gradient(135deg, #e4405f 0%, #fd1d1d 100%); color: white; transform: scale(1.1);" title="Instagram">📷</div>
-                <div class="social-icon" style="background: linear-gradient(135deg, #0077b5 0%, #00a0dc 100%); color: white; transform: scale(1.1);" title="LinkedIn">💼</div>
-            </div>
-            
-            <div style="height: 1px; background: linear-gradient(90deg, transparent 0%, rgba(59, 130, 246, 0.3) 50%, transparent 100%); margin: 1.5rem 0;"></div>
-            
-            <div class="footer-copyright" style="font-size: 1rem; color: rgba(255, 255, 255, 0.8); font-weight: 500;">
-                <span style="color: #3b82f6;">©</span> 2025 <span style="color: #2563eb; font-weight: 700;">LoadMatrix</span>. All rights reserved.
-            </div>
+            <p style="margin-top: 20px; font-size: 0.85rem; color: rgba(255, 255, 255, 0.5);">
+                © 2025 LoadMatrix. All rights reserved.
+            </p>
         </div>
     </footer>
 </body>
 </html>
-
